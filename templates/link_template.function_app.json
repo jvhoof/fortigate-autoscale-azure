@@ -217,7 +217,8 @@
             },
             "condition": "[variables('enableAzureAppInsights')]",
             "dependsOn": [
-                "[resourceId('Microsoft.OperationalInsights/workspaces', variables('appInsightWorkspaceName'))]"
+                "[resourceId('Microsoft.OperationalInsights/workspaces', variables('appInsightWorkspaceName'))]",
+                "[resourceId('Microsoft.OperationalInsights/workspaces/tables', variables('appInsightWorkspaceName'),'Heartbeat')]"
             ]
         }
     ],
