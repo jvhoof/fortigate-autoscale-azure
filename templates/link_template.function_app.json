@@ -215,7 +215,10 @@
                 "ApplicationId": "[parameters('FunctionAppName')]",
                 "WorkspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', variables('appInsightWorkspaceName'))]"
             },
-            "condition": "[variables('enableAzureAppInsights')]"
+            "condition": "[variables('enableAzureAppInsights')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.OperationalInsights/workspaces', variables('appInsightWorkspaceName'))]"
+            ]
         }
     ],
     "outputs": {
